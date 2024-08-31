@@ -61,7 +61,7 @@ function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = ''; // Clear any existing rows
 
-    Object.keys(pointsTable).forEach(team => {
+    allTeams.forEach(team => { // Ensure the table displays all teams
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${team}</td>
