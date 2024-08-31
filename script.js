@@ -1,21 +1,24 @@
 const teams = [
-    { team: "Hyderabad HellDivers", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "Vijayawada Volunteers", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "Golden Warriors", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "American Eagles", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "Bombay Heats", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
     { team: "Deccan Chargers", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
     { team: "Elite Eagles", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "Bombay Heats", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "Vhagor Riders", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "The Spartans", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "The Hesitate Hitters", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "Team Physics", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "Golden Warriors", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "Hyderabad HellDivers", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
     { team: "Royal Challengers Bhimavaram", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
-    { team: "American Eagles", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 }
+    { team: "Team Physics", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "The Hesitate Hitters", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "The Spartans", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "Vhagor Riders", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 },
+    { team: "Vijayawada Volunteers", matches: 0, won: 0, loss: 0, nrr: 0.000, points: 0 }
 ];
 
 function loadSeason() {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = "";
+
+    // Sort teams alphabetically by default
+    teams.sort((a, b) => a.team.localeCompare(b.team));
 
     teams.forEach(team => {
         const row = document.createElement("tr");
