@@ -1,6 +1,6 @@
 /* Background image setup */
 body {
-    background-image: url('images/your-image-name.jpg'); /* Update with the correct path and image name */
+    background-image: url('images/background.jpg'); /* Path to the background image */
     background-size: cover;
     background-position: center;
     color: #ffffff;
