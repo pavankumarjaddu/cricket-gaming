@@ -1,3 +1,4 @@
+/* Common styles for the whole site */
 body {
     background-color: #121212;
     color: #ffffff;
@@ -11,6 +12,42 @@ body {
     padding: 20px;
 }
 
+/* Specific styles for the login page */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #222;
+    border-radius: 10px;
+    color: #fff;
+}
+
+label, input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+#error-msg {
+    color: red;
+    text-align: center;
+}
+
+/* Specific styles for the points table */
 select {
     background-color: #333;
     color: #fff;
