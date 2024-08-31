@@ -4,7 +4,5 @@
         "teams": ["Elite Eagles", "Bombay Heats"],
         "winner": "Bombay Heats",
         "result": "Bombay Heats won by 3 wickets"
-        // Add NRR here if you calculate it externally
     }
-    // Add more matches as they are played
 ]
