@@ -1,58 +1,75 @@
+const allTeams = [
+    "Elite Eagles",
+    "Bombay Heats",
+    "Hyderabad HellDivers",
+    "Vijayawada Volunteers",
+    "Golden Warriors",
+    "Deccan Chargers",
+    "Vhagor Riders",
+    "The Spartans",
+    "The Hesitate Hitters",
+    "Team Physics",
+    "Royal Challengers Bhimavaram",
+    "American Eagles"
+];
+
 fetch('matches.json')
     .then(response => response.json())
     .then(matches => {
-        const pointsTable = calculatePointsTable(matches);
+        const pointsTable = initializePointsTable(allTeams);
+        updatePointsTable(pointsTable, matches);
         displayPointsTable(pointsTable);
     });
 
-function calculatePointsTable(matches) {
-    const teams = {};
+function initializePointsTable(teams) {
+    const pointsTable = {};
 
+    teams.forEach(team => {
+        pointsTable[team] = { matches: 0, won: 0, loss: 0, nrr: 0, points: 0 };
+    });
+
+    return pointsTable;
+}
+
+function updatePointsTable(pointsTable, matches) {
     matches.forEach(match => {
         const [team1, team2] = match.teams;
         const winner = match.winner;
         const loser = winner === team1 ? team2 : team1;
 
-        // Initialize teams if not already in the table
-        if (!teams[team1]) {
-            teams[team1] = { matches: 0, won: 0, loss: 0, nrr: 0, points: 0 };
-        }
-        if (!teams[team2]) {
-            teams[team2] = { matches: 0, won: 0, loss: 0, nrr: 0, points: 0 };
-        }
-
         // Update matches played
-        teams[team1].matches += 1;
-        teams[team2].matches += 1;
+        pointsTable[team1].matches += 1;
+        pointsTable[team2].matches += 1;
 
         // Update wins and losses
-        teams[winner].won += 1;
-        teams[loser].loss += 1;
+        pointsTable[winner].won += 1;
+        pointsTable[loser].loss += 1;
 
         // Update points (2 points per win)
-        teams[winner].points += 2;
+        pointsTable[winner].points += 2;
 
-        // NRR could be updated here if needed
-        // Example: teams[winner].nrr += (calculate NRR logic here);
-        // For now, let's assume you manually input NRRs in the JSON or update them later
+        // Calculate NRR
+        const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
+        const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
+
+        pointsTable[team1].nrr += team1NRR;
+        pointsTable[team2].nrr += team2NRR;
     });
-
-    return teams;
 }
 
-function displayPointsTable(teams) {
+function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = ''; // Clear any existing rows
 
-    Object.keys(teams).forEach(team => {
+    Object.keys(pointsTable).forEach(team => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${team}</td>
-            <td>${teams[team].matches}</td>
-            <td>${teams[team].won}</td>
-            <td>${teams[team].loss}</td>
-            <td>${teams[team].nrr.toFixed(3)}</td>
-            <td>${teams[team].points}</td>
+            <td>${pointsTable[team].matches}</td>
+            <td>${pointsTable[team].won}</td>
+            <td>${pointsTable[team].loss}</td>
+            <td>${pointsTable[team].nrr.toFixed(3)}</td>
+            <td>${pointsTable[team].points}</td>
         `;
         tableBody.appendChild(row);
     });
