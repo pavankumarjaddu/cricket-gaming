@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Cricket Tournament Points Table</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form id="login-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <p id="error-msg"></p>
+    <div class="container">
+        <h1>Cricket Tournament Points Table</h1>
+
+        <table id="points-table">
+            <thead>
+                <tr>
+                    <th>Team</th>
+                    <th>Matches</th>
+                    <th>Won</th>
+                    <th>Loss</th>
+                    <th>Net Run Rate</th>
+                    <th>Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Points data will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+
+        <div class="caps">
+            <div class="cap">
+                <h2>Orange Cap</h2>
+                <p>Player: <span id="orange-cap"></span></p>
+            </div>
+            <div class="cap">
+                <h2>Purple Cap</h2>
+                <p>Player: <span id="purple-cap"></span></p>
+            </div>
+            <div class="cap">
+                <h2>Electric Striker</h2>
+                <p>Player: <span id="electric-striker"></span></p>
+            </div>
+        </div>
     </div>
-    <script src="login.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
