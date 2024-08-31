@@ -1,24 +1,20 @@
-/* Common styles for the whole site */
+/* Background image setup */
 body {
-    background-color: #121212;
+    background-image: url('images/your-image-name.jpg'); /* Update with the correct path and image name */
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
-
-/* Specific styles for the login page */
+/* Center the login box */
 .login-container {
     max-width: 400px;
-    margin: 100px auto;
+    margin: 150px auto;
     padding: 20px;
     border: 1px solid #ccc;
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     border-radius: 10px;
     color: #fff;
 }
@@ -27,19 +23,24 @@ label, input {
     display: block;
     width: 100%;
     margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
 }
 
 button {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #28a745; /* Green button */
     border: none;
     color: #fff;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #444;
+    background-color: #218838; /* Darker green on hover */
 }
 
 #error-msg {
@@ -47,19 +48,20 @@ button:hover {
     text-align: center;
 }
 
-/* Specific styles for the points table */
-select {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    margin-bottom: 20px;
+/* Additional styles for the points table (if needed) */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border-radius: 10px;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 30px;
+    color: #fff;
 }
 
 th, td {
@@ -69,16 +71,17 @@ th, td {
 }
 
 th {
-    background-color: #444;
+    background-color: #333;
 }
 
 .caps {
     display: flex;
     justify-content: space-around;
+    color: #fff;
 }
 
 .cap {
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     padding: 20px;
     width: 30%;
     border-radius: 10px;
