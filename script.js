@@ -1,25 +1,21 @@
-const allTeams = [
-    "Elite Eagles",
-    "Bombay Heats",
-    "Hyderabad HellDivers",
-    "Vijayawada Volunteers",
-    "Golden Warriors",
-    "Deccan Chargers",
-    "Vhagor Riders",
-    "The Spartans",
-    "The Hesitate Hitters",
-    "Team Physics",
-    "Royal Challengers Bhimavaram",
-    "American Eagles"
-];
-
-fetch('matches.json')
-    .then(response => response.json())
-    .then(matches => {
-        const pointsTable = initializePointsTable(allTeams);
-        updatePointsTable(pointsTable, matches);
-        displayPointsTable(pointsTable);
-    });
+// Ensure this runs after the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('matches.json')
+        .then(response => {
+            console.log('Fetching matches.json...'); // Log to confirm fetch is initiated
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(matches => {
+            console.log('Matches data:', matches); // Log the matches data to the console
+            const pointsTable = initializePointsTable(allTeams);
+            updatePointsTable(pointsTable, matches);
+            displayPointsTable(pointsTable);
+        })
+        .catch(error => console.error('There was a problem with the fetch operation:', error));
+});
 
 function initializePointsTable(teams) {
     const pointsTable = {};
@@ -61,7 +57,7 @@ function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = ''; // Clear any existing rows
 
-    allTeams.forEach(team => { // Ensure the table displays all teams
+    allTeams.forEach(team => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${team}</td>
