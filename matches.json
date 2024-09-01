@@ -32,8 +32,8 @@
     {
         "id": 4,
         "teams": ["Team Physics", "Deccan Chargers"],
-        "winner": "Team Physics",
-        "result": "Team Physics won by 166 runs",
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 166 runs",
         "scores": {
             "Deccan Chargers": { "runs": 241, "overs": 17.5 },
             "Team Physics": { "runs": 75, "overs": 12.4 }
