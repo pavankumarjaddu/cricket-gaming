@@ -96,3 +96,21 @@ function displayPointsTable(pointsTable) {
         tableBody.appendChild(row);
     });
 }
+// Fetching the matches.json and updating the points table
+fetch('matches.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(matches => {
+        if (!matches || !Array.isArray(matches)) {
+            throw new Error('Invalid matches data');
+        }
+        console.log('Matches data:', matches);
+        const pointsTable = initializePointsTable(allTeams);
+        updatePointsTable(pointsTable, matches);
+        displayPointsTable(pointsTable);
+    })
+    .catch(error => console.error('There was a problem with the fetch operation:', error));
