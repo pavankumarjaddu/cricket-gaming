@@ -96,7 +96,6 @@ function displayPointsTable(pointsTable) {
         tableBody.appendChild(row);
     });
 }
-// Fetching the matches.json and updating the points table
 fetch('matches.json')
     .then(response => {
         if (!response.ok) {
@@ -109,8 +108,24 @@ fetch('matches.json')
             throw new Error('Invalid matches data');
         }
         console.log('Matches data:', matches);
+
+        // Initialize points table
         const pointsTable = initializePointsTable(allTeams);
+        
+        // Debugging: Log each match being processed
+        matches.forEach((match, index) => {
+            console.log(`Processing match ID: ${match.id}`);
+            console.log('Match data:', match);
+
+            if (!match.scores || !match.teams || !match.winner) {
+                console.error('Invalid match data structure:', match);
+            }
+        });
+
+        // Update the points table
         updatePointsTable(pointsTable, matches);
+        
+        // Display the points table
         displayPointsTable(pointsTable);
     })
     .catch(error => console.error('There was a problem with the fetch operation:', error));
