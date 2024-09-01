@@ -43,16 +43,13 @@ function initializePointsTable(teams) {
 
 function updatePointsTable(pointsTable, matches) {
     matches.forEach(match => {
-        // Logging the match data to debug the issue
+        // Debugging the match object
         console.log('Processing match:', match);
-        console.log('Teams:', match.teams);
-        console.log('Winner:', match.winner);
-        console.log('Scores:', match.scores);
 
-        // If any of these properties are undefined, it will log the issue to the console
-        if (!match.teams || !match.winner || !match.scores) {
-            console.error('Invalid match data structure:', match);
-            return; // Skip this match if the structure is invalid
+        // Check that the teams and winner exist
+        if (!match.teams || match.teams.length < 2 || !match.winner || !match.scores) {
+            console.error('Invalid match data:', match);
+            return;  // Skip this iteration if data is invalid
         }
 
         const [team1, team2] = match.teams;
@@ -70,15 +67,17 @@ function updatePointsTable(pointsTable, matches) {
         // Update points (2 points per win)
         pointsTable[winner].points += 2;
 
-        // Calculate NRR
+        // Calculate NRR (Net Run Rate)
         const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
         const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
 
         pointsTable[team1].nrr += team1NRR;
         pointsTable[team2].nrr += team2NRR;
+
+        console.log('Updated points table for', team1, ':', pointsTable[team1]);
+        console.log('Updated points table for', team2, ':', pointsTable[team2]);
     });
 }
-
 function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = '';
