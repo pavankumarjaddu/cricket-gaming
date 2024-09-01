@@ -2,7 +2,17 @@
 function initializePointsTable(teams) {
     const pointsTable = {};
     teams.forEach(team => {
-        pointsTable[team] = { matches: 0, won: 0, loss: 0, nrr: 0, points: 0 };
+        pointsTable[team] = {
+            matches: 0,
+            won: 0,
+            loss: 0,
+            nrr: 0,
+            points: 0,
+            totalRunsScored: 0,
+            totalOversFaced: 0,
+            totalRunsConceded: 0,
+            totalOversBowled: 0
+        };
     });
     return pointsTable;
 }
@@ -31,12 +41,26 @@ function processMatch(pointsTable, match) {
     const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
     const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
 
-    // Calculate NRR
-    const team1NRR = (match.scores[team1].runs / team1Overs) - (match.scores[team2].runs / team2Overs);
-    const team2NRR = (match.scores[team2].runs / team2Overs) - (match.scores[team1].runs / team1Overs);
+    // Accumulate total runs and overs
+    pointsTable[team1].totalRunsScored += match.scores[team1].runs;
+    pointsTable[team1].totalOversFaced += team1Overs;
+    pointsTable[team1].totalRunsConceded += match.scores[team2].runs;
+    pointsTable[team1].totalOversBowled += team2Overs;
 
-    pointsTable[team1].nrr += team1NRR;
-    pointsTable[team2].nrr += team2NRR;
+    pointsTable[team2].totalRunsScored += match.scores[team2].runs;
+    pointsTable[team2].totalOversFaced += team2Overs;
+    pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
+    pointsTable[team2].totalOversBowled += team1Overs;
+}
+
+// Calculate NRR based on accumulated runs and overs
+function calculateNRR(pointsTable) {
+    for (let team in pointsTable) {
+        const teamData = pointsTable[team];
+        const runsScoredPerOver = teamData.totalRunsScored / teamData.totalOversFaced;
+        const runsConcededPerOver = teamData.totalRunsConceded / teamData.totalOversBowled;
+        teamData.nrr = runsScoredPerOver - runsConcededPerOver;
+    }
 }
 
 // Display the points table in the UI
@@ -82,6 +106,7 @@ function updateTournamentTable() {
         .then(matches => {
             const pointsTable = initializePointsTable(allTeams);
             matches.forEach(match => processMatch(pointsTable, match));
+            calculateNRR(pointsTable);
             displayPointsTable(pointsTable);
         })
         .catch(error => console.error('Error fetching or processing data:', error));
