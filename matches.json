@@ -14,5 +14,53 @@
                 "overs": 6.3
             }
         }
+    },
+    {
+        "id": "2",
+        "teams": ["The Spartans", "The Hesitant Hitters"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 201 runs",
+        "scores": {
+            "The Spartans": {
+                "runs": 252,
+                "overs": 20.0
+            },
+            "The Hesitant Hitters": {
+                "runs": 51,
+                "overs": 10.2
+            }
+        }
+    },
+    {
+        "id": "3",
+        "teams": ["Elite Eagles", "The Hesitant Hitters"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 58 runs",
+        "scores": {
+            "Elite Eagles": {
+                "runs": 120,
+                "overs": 14.5
+            },
+            "The Hesitant Hitters": {
+                "runs": 62,
+                "overs": 16.0
+            }
+        }
+    },
+    {
+        "id": "4",
+        "teams": ["Team Physics", "Deccan Chargers"],
+        "winner": "Team Physics",
+        "result": "Team Physics won by 166 runs",
+        "scores": {
+            "Team Physics": {
+                "runs": 241,
+                "overs": 17.5
+            },
+            "Deccan Chargers": {
+                "runs": 75,
+                "overs": 12.4
+            }
+        }
     }
 ]
