@@ -3,6 +3,16 @@
         "id": "1",
         "teams": ["Elite Eagles", "Bombay Heats"],
         "winner": "Bombay Heats",
-        "result": "Bombay Heats won by 3 wickets"
+        "result": "Bombay Heats won by 3 wickets",
+        "scores": {
+            "Elite Eagles": {
+                "runs": 57,
+                "overs": 7.5
+            },
+            "Bombay Heats": {
+                "runs": 60,
+                "overs": 6.3
+            }
+        }
     }
 ]
