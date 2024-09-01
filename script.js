@@ -24,12 +24,19 @@ function processMatch(pointsTable, match) {
     // Update points (2 points per win)
     pointsTable[winner].points += 2;
 
-    // Calculate NRR
-    const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
-    const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
+    // Determine entitled overs (use 20 overs if the team was all out)
+    const team1EntitledOvers = match.scores[team1].overs < 20 ? 20 : match.scores[team1].overs;
+    const team2EntitledOvers = match.scores[team2].overs < 20 ? 20 : match.scores[team2].overs;
 
-    pointsTable[team1].nrr += team1NRR;
-    pointsTable[team2].nrr += team2NRR;
+    // Calculate Run Rates for NRR
+    const team1RRFor = match.scores[team1].runs / team1EntitledOvers;
+    const team1RRAgainst = match.scores[team2].runs / team2EntitledOvers;
+    const team2RRFor = match.scores[team2].runs / team2EntitledOvers;
+    const team2RRAgainst = match.scores[team1].runs / team1EntitledOvers;
+
+    // Update the NRR
+    pointsTable[team1].nrr += (team1RRFor - team1RRAgainst);
+    pointsTable[team2].nrr += (team2RRFor - team2RRAgainst);
 }
 
 // Display the points table in the UI
