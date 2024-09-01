@@ -42,18 +42,18 @@ function initializePointsTable(teams) {
 }
 
 function updatePointsTable(pointsTable, matches) {
-    if (!Array.isArray(matches)) {
-        console.error("Matches data is not an array:", matches);
-        return;
-    }
+    matches.forEach(match => {
+        // Logging the match data to debug the issue
+        console.log('Processing match:', match);
+        console.log('Teams:', match.teams);
+        console.log('Winner:', match.winner);
+        console.log('Scores:', match.scores);
 
-    matches.forEach((match, index) => {
-        if (!match || !match.teams || !match.winner || !match.scores) {
-            console.error(`Match data at index ${index} is missing required properties:`, match);
-            return;
+        // If any of these properties are undefined, it will log the issue to the console
+        if (!match.teams || !match.winner || !match.scores) {
+            console.error('Invalid match data structure:', match);
+            return; // Skip this match if the structure is invalid
         }
-
-        console.log(`Processing match ID: ${match.id}`);
 
         const [team1, team2] = match.teams;
         const winner = match.winner;
