@@ -1,3 +1,4 @@
+// Define allTeams at the top of the script
 const allTeams = [
     "Elite Eagles",
     "Bombay Heats",
@@ -7,7 +8,7 @@ const allTeams = [
     "Deccan Chargers",
     "Vhagor Riders",
     "The Spartans",
-    "The Hesitant Hitters",
+    "The Hesitate Hitters",
     "Team Physics",
     "Royal Challengers Bhimavaram",
     "American Eagles"
