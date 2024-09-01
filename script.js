@@ -24,19 +24,19 @@ function processMatch(pointsTable, match) {
     // Update points (2 points per win)
     pointsTable[winner].points += 2;
 
-    // Determine entitled overs (use 20 overs if the team was all out)
-    const team1EntitledOvers = match.scores[team1].overs < 20 ? 20 : match.scores[team1].overs;
-    const team2EntitledOvers = match.scores[team2].overs < 20 ? 20 : match.scores[team2].overs;
+    // Full quota of overs assumed (e.g., 20 overs in T20)
+    const fullQuotaOvers = 20.0;
 
-    // Calculate Run Rates for NRR
-    const team1RRFor = match.scores[team1].runs / team1EntitledOvers;
-    const team1RRAgainst = match.scores[team2].runs / team2EntitledOvers;
-    const team2RRFor = match.scores[team2].runs / team2EntitledOvers;
-    const team2RRAgainst = match.scores[team1].runs / team1EntitledOvers;
+    // Use full quota of overs if the team is bowled out
+    const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
+    const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
 
-    // Update the NRR
-    pointsTable[team1].nrr += (team1RRFor - team1RRAgainst);
-    pointsTable[team2].nrr += (team2RRFor - team2RRAgainst);
+    // Calculate NRR
+    const team1NRR = (match.scores[team1].runs / team1Overs) - (match.scores[team2].runs / team2Overs);
+    const team2NRR = (match.scores[team2].runs / team2Overs) - (match.scores[team1].runs / team1Overs);
+
+    pointsTable[team1].nrr += team1NRR;
+    pointsTable[team2].nrr += team2NRR;
 }
 
 // Display the points table in the UI
