@@ -35,8 +35,8 @@
         "winner": "Team Physics",
         "result": "Team Physics won by 166 runs",
         "scores": {
-            "Team Physics": { "runs": 241, "overs": 17.5 },
-            "Deccan Chargers": { "runs": 75, "overs": 12.4 }
+            "Deccan Chargers": { "runs": 241, "overs": 17.5 },
+            "Team Physics": { "runs": 75, "overs": 12.4 }
         }
     }
 ]

@@ -43,7 +43,22 @@ function processMatch(pointsTable, match) {
 function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = '';
-    allTeams.forEach(team => {
+
+    // Convert pointsTable object into an array for sorting
+    const sortedTeams = Object.keys(pointsTable).sort((teamA, teamB) => {
+        const teamAPoints = pointsTable[teamA].points;
+        const teamBPoints = pointsTable[teamB].points;
+
+        // Sort primarily by points, then by NRR if points are equal
+        if (teamAPoints === teamBPoints) {
+            return pointsTable[teamB].nrr - pointsTable[teamA].nrr;
+        } else {
+            return teamBPoints - teamAPoints;
+        }
+    });
+
+    // Create table rows in sorted order
+    sortedTeams.forEach(team => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${team}</td>
