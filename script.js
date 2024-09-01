@@ -1,4 +1,3 @@
-// Define allTeams at the top of the script
 const allTeams = [
     "Elite Eagles",
     "Bombay Heats",
@@ -14,18 +13,17 @@ const allTeams = [
     "American Eagles"
 ];
 
-// Ensure this runs after the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     fetch('matches.json')
         .then(response => {
-            console.log('Fetching matches.json...'); // Log to confirm fetch is initiated
+            console.log('Fetching matches.json...');
             if (!response.ok) {
                 throw new Error('Network response was not ok ' + response.statusText);
             }
             return response.json();
         })
         .then(matches => {
-            console.log('Matches data:', matches); // Log the matches data to the console
+            console.log('Matches data:', matches);
             const pointsTable = initializePointsTable(allTeams);
             updatePointsTable(pointsTable, matches);
             displayPointsTable(pointsTable);
@@ -44,23 +42,29 @@ function initializePointsTable(teams) {
 }
 
 function updatePointsTable(pointsTable, matches) {
+    if (!Array.isArray(matches)) {
+        console.error("Matches data is not an array:", matches);
+        return;
+    }
+
     matches.forEach(match => {
+        if (!match.teams || !match.winner || !match.scores) {
+            console.error("Match data is missing required properties:", match);
+            return;
+        }
+
         const [team1, team2] = match.teams;
         const winner = match.winner;
         const loser = winner === team1 ? team2 : team1;
 
-        // Update matches played
         pointsTable[team1].matches += 1;
         pointsTable[team2].matches += 1;
 
-        // Update wins and losses
         pointsTable[winner].won += 1;
         pointsTable[loser].loss += 1;
 
-        // Update points (2 points per win)
         pointsTable[winner].points += 2;
 
-        // Calculate NRR
         const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
         const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
 
@@ -71,7 +75,7 @@ function updatePointsTable(pointsTable, matches) {
 
 function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
-    tableBody.innerHTML = ''; // Clear any existing rows
+    tableBody.innerHTML = '';
 
     allTeams.forEach(team => {
         const row = document.createElement("tr");
