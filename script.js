@@ -47,9 +47,9 @@ function updatePointsTable(pointsTable, matches) {
         return;
     }
 
-    matches.forEach(match => {
-        if (!match.id || !match.teams || !match.winner || !match.scores) {
-            console.error("Match data is missing required properties:", match);
+    matches.forEach((match, index) => {
+        if (!match || !match.teams || !match.winner || !match.scores) {
+            console.error(`Match data at index ${index} is missing required properties:`, match);
             return;
         }
 
