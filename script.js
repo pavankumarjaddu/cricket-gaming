@@ -1,3 +1,18 @@
+const allTeams = [
+    "Elite Eagles",
+    "Bombay Heats",
+    "Hyderabad HellDivers",
+    "Vijayawada Volunteers",
+    "Golden Warriors",
+    "Deccan Chargers",
+    "Vhagor Riders",
+    "The Spartans",
+    "The Hesitant Hitters",
+    "Team Physics",
+    "Royal Challengers Bhimavaram",
+    "American Eagles"
+];
+
 // Ensure this runs after the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     fetch('matches.json')
