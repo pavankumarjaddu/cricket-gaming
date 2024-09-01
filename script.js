@@ -23,9 +23,26 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(matches => {
+            if (!Array.isArray(matches)) {
+                throw new Error('matches.json did not return an array');
+            }
+
             console.log('Matches data:', matches);
             const pointsTable = initializePointsTable(allTeams);
-            updatePointsTable(pointsTable, matches);
+
+            // Process each match individually
+            matches.forEach(match => {
+                if (match && match.teams && match.winner && match.scores) {
+                    console.log(`Processing match ID: ${match.id}`);
+                    console.log('Match data:', match);
+
+                    // Update the points table for valid matches
+                    updatePointsTable(pointsTable, match);
+                } else {
+                    console.error('Skipping invalid match data:', match);
+                }
+            });
+
             displayPointsTable(pointsTable);
         })
         .catch(error => console.error('There was a problem with the fetch operation:', error));
@@ -41,43 +58,33 @@ function initializePointsTable(teams) {
     return pointsTable;
 }
 
-function updatePointsTable(pointsTable, matches) {
-    matches.forEach(match => {
-        // Debugging the match object
-        console.log('Processing match:', match);
+function updatePointsTable(pointsTable, match) {
+    const [team1, team2] = match.teams;
+    const winner = match.winner;
+    const loser = winner === team1 ? team2 : team1;
 
-        // Check that the teams and winner exist
-        if (!match.teams || match.teams.length < 2 || !match.winner || !match.scores) {
-            console.error('Invalid match data:', match);
-            return;  // Skip this iteration if data is invalid
-        }
+    // Update matches played
+    pointsTable[team1].matches += 1;
+    pointsTable[team2].matches += 1;
 
-        const [team1, team2] = match.teams;
-        const winner = match.winner;
-        const loser = winner === team1 ? team2 : team1;
+    // Update wins and losses
+    pointsTable[winner].won += 1;
+    pointsTable[loser].loss += 1;
 
-        // Update matches played
-        pointsTable[team1].matches += 1;
-        pointsTable[team2].matches += 1;
+    // Update points (2 points per win)
+    pointsTable[winner].points += 2;
 
-        // Update wins and losses
-        pointsTable[winner].won += 1;
-        pointsTable[loser].loss += 1;
+    // Calculate NRR
+    const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
+    const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
 
-        // Update points (2 points per win)
-        pointsTable[winner].points += 2;
+    pointsTable[team1].nrr += team1NRR;
+    pointsTable[team2].nrr += team2NRR;
 
-        // Calculate NRR (Net Run Rate)
-        const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
-        const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
-
-        pointsTable[team1].nrr += team1NRR;
-        pointsTable[team2].nrr += team2NRR;
-
-        console.log('Updated points table for', team1, ':', pointsTable[team1]);
-        console.log('Updated points table for', team2, ':', pointsTable[team2]);
-    });
+    console.log(`Updated points table for ${team1} :`, pointsTable[team1]);
+    console.log(`Updated points table for ${team2} :`, pointsTable[team2]);
 }
+
 function displayPointsTable(pointsTable) {
     const tableBody = document.querySelector("#points-table tbody");
     tableBody.innerHTML = '';
@@ -95,36 +102,3 @@ function displayPointsTable(pointsTable) {
         tableBody.appendChild(row);
     });
 }
-fetch('matches.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-    .then(matches => {
-        if (!matches || !Array.isArray(matches)) {
-            throw new Error('Invalid matches data');
-        }
-        console.log('Matches data:', matches);
-
-        // Initialize points table
-        const pointsTable = initializePointsTable(allTeams);
-        
-        // Debugging: Log each match being processed
-        matches.forEach((match, index) => {
-            console.log(`Processing match ID: ${match.id}`);
-            console.log('Match data:', match);
-
-            if (!match.scores || !match.teams || !match.winner) {
-                console.error('Invalid match data structure:', match);
-            }
-        });
-
-        // Update the points table
-        updatePointsTable(pointsTable, matches);
-        
-        // Display the points table
-        displayPointsTable(pointsTable);
-    })
-    .catch(error => console.error('There was a problem with the fetch operation:', error));
