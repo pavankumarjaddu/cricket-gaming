@@ -43,14 +43,13 @@ function initializePointsTable(teams) {
 
 function updatePointsTable(pointsTable, matches) {
     matches.forEach(match => {
+        // Logging the match data to debug the issue
         console.log('Processing match:', match);
-        console.log('Teams:', match.teams);
-        console.log('Winner:', match.winner);
-        console.log('Scores:', match.scores);
 
+        // If any of these properties are undefined, it will log the issue to the console
         if (!match.teams || !match.winner || !match.scores) {
             console.error('Invalid match data structure:', match);
-            return;
+            return; // Skip this match if the structure is invalid
         }
 
         const [team1, team2] = match.teams;
@@ -75,7 +74,7 @@ function updatePointsTable(pointsTable, matches) {
         pointsTable[team1].nrr += team1NRR;
         pointsTable[team2].nrr += team2NRR;
 
-        // Debugging: Log the updated points table for each team
+        // Log the updated points table for debugging
         console.log(`Updated points table for ${team1}:`, pointsTable[team1]);
         console.log(`Updated points table for ${team2}:`, pointsTable[team2]);
     });
@@ -98,34 +97,3 @@ function displayPointsTable(pointsTable) {
         tableBody.appendChild(row);
     });
 }
-
-// Fetch and process matches.json
-fetch('matches.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json();
-    })
-    .then(matches => {
-        if (!matches || !Array.isArray(matches)) {
-            throw new Error('Invalid matches data');
-        }
-        console.log('Matches data:', matches);
-
-        const pointsTable = initializePointsTable(allTeams);
-
-        // Process each match
-        matches.forEach((match, index) => {
-            console.log(`Processing match ID: ${match.id}`);
-            console.log('Match data:', match);
-
-            if (!match.scores || !match.teams || !match.winner) {
-                console.error('Invalid match data structure:', match);
-            }
-        });
-
-        updatePointsTable(pointsTable, matches);
-        displayPointsTable(pointsTable);
-    })
-    .catch(error => console.error('There was a problem with the fetch operation:', error));
