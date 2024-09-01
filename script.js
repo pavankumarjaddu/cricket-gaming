@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Matches data:', matches);
             const pointsTable = initializePointsTable(allTeams);
 
-            // Process each match individually
             matches.forEach(match => {
                 if (match && match.teams && match.winner && match.scores) {
                     console.log(`Processing match ID: ${match.id}`);
@@ -59,7 +58,14 @@ function initializePointsTable(teams) {
 }
 
 function updatePointsTable(pointsTable, match) {
+    console.log('Updating points table...');
     const [team1, team2] = match.teams;
+
+    if (!team1 || !team2) {
+        console.error('Invalid teams data:', match.teams);
+        return;
+    }
+
     const winner = match.winner;
     const loser = winner === team1 ? team2 : team1;
 
