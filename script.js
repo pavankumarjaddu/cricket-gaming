@@ -48,23 +48,29 @@ function updatePointsTable(pointsTable, matches) {
     }
 
     matches.forEach(match => {
-        if (!match.teams || !match.winner || !match.scores) {
+        if (!match.id || !match.teams || !match.winner || !match.scores) {
             console.error("Match data is missing required properties:", match);
             return;
         }
+
+        console.log(`Processing match ID: ${match.id}`);
 
         const [team1, team2] = match.teams;
         const winner = match.winner;
         const loser = winner === team1 ? team2 : team1;
 
+        // Update matches played
         pointsTable[team1].matches += 1;
         pointsTable[team2].matches += 1;
 
+        // Update wins and losses
         pointsTable[winner].won += 1;
         pointsTable[loser].loss += 1;
 
+        // Update points (2 points per win)
         pointsTable[winner].points += 2;
 
+        // Calculate NRR
         const team1NRR = (match.scores[team1].runs / match.scores[team1].overs) - (match.scores[team2].runs / match.scores[team2].overs);
         const team2NRR = (match.scores[team2].runs / match.scores[team2].overs) - (match.scores[team1].runs / match.scores[team1].overs);
 
