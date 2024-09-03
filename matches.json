@@ -118,5 +118,15 @@
             "The Hesitate Hitters": { "runs": 216, "overs": 20 },
             "Deccan Chargers": { "runs": 217, "overs": 12.4 }
         }
+    },
+    {
+        "id": 12,
+        "teams": ["Vijayawada Volunteers","Golden Warriors"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 4 wickets",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 127, "overs": 11.1 },
+            "Golden Warriors": { "runs": 128, "overs": 12.4 }
+        }
     }  
 ]
