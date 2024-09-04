@@ -128,5 +128,45 @@
             "Vijayawada Volunteers": { "runs": 127, "overs": 11.1 },
             "Golden Warriors": { "runs": 128, "overs": 12.4 }
         }
+    },
+    {
+        "id": 14,
+        "teams": ["Elite Eagles","Vhagor Riders"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 1 run",
+        "scores": {
+            "Elite Eagles": { "runs": 63, "overs": 11.4 },
+            "Vhagor Riders": { "runs": 62, "overs": 14.1 }
+        }
+    },
+    {
+        "id": 15,
+        "teams": ["Elite Eagles","American Eagles"],
+        "winner": "American Eagles",
+        "result": "American Eagles won by 27 run",
+        "scores": {
+            "American Eagles": { "runs": 88, "overs": 12.4 },
+            "Elite Eagles": { "runs": 61, "overs": 13.4 }
+        }
+    },
+    {
+        "id": 16,
+        "teams": ["Vhagor Riders","Golden Warriors"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 80 run",
+        "scores": {
+            "Vhagor Riders": { "runs": 181, "overs": 20 },
+            "Golden Warriors": { "runs": 101, "overs": 11.5 }
+        }
+    },
+    {
+        "id": 17,
+        "teams": ["Golden Warriors","Royal Challengers Bhimavaram"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 199 wickets",
+        "scores": {
+            "Golden Warriors": { "runs": 252, "overs": 20 },
+            "Royal Challengers Bhimavaram": { "runs": 53, "overs": 20 }
+        }
     }  
 ]
