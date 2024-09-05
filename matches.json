@@ -218,5 +218,15 @@
             "Golden Warriors": null,
             "Deccan Chargers": null
         }
+    },
+    {
+        "id": 23,
+        "teams": ["Bombay Heats","Hologram"],
+        "winner": "Hologram",
+        "result": "Hologram won by 7 wickets",
+        "scores": {
+            "Bombay Heats": { "runs": 126, "overs": 18 },
+            "Hologram": { "runs": 129, "overs": 9.2 }
+        }
     }   
 ]
