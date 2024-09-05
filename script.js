@@ -20,12 +20,20 @@ function initializePointsTable(teams) {
 // Process a single match and update the points table
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
-    const winner = match.winner;
-    const loser = winner === team1 ? team2 : team1;
 
     // Update matches played
     pointsTable[team1].matches += 1;
     pointsTable[team2].matches += 1;
+
+    if (match.winner === "Tie") {
+        // Award 1 point to each team in case of a tie
+        pointsTable[team1].points += 1;
+        pointsTable[team2].points += 1;
+        return; // Skip further processing for a tie match
+    }
+
+    const winner = match.winner;
+    const loser = winner === team1 ? team2 : team1;
 
     // Update wins and losses
     pointsTable[winner].won += 1;
@@ -57,9 +65,13 @@ function processMatch(pointsTable, match) {
 function calculateNRR(pointsTable) {
     for (let team in pointsTable) {
         const teamData = pointsTable[team];
-        const runsScoredPerOver = teamData.totalRunsScored / teamData.totalOversFaced;
-        const runsConcededPerOver = teamData.totalRunsConceded / teamData.totalOversBowled;
-        teamData.nrr = runsScoredPerOver - runsConcededPerOver;
+        if (teamData.totalOversFaced > 0 && teamData.totalOversBowled > 0) {
+            const runsScoredPerOver = teamData.totalRunsScored / teamData.totalOversFaced;
+            const runsConcededPerOver = teamData.totalRunsConceded / teamData.totalOversBowled;
+            teamData.nrr = runsScoredPerOver - runsConcededPerOver;
+        } else {
+            teamData.nrr = 0;
+        }
     }
 }
 
@@ -123,7 +135,7 @@ const allTeams = [
     "Vhagor Riders",
     "The Spartans",
     "The Hesitate Hitters",
-    "Team Physics",
+    "Hologram",
     "Royal Challengers Bhimavaram",
     "American Eagles"
 ];

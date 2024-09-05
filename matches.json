@@ -168,5 +168,55 @@
             "Golden Warriors": { "runs": 252, "overs": 20 },
             "Royal Challengers Bhimavaram": { "runs": 53, "overs": 20 }
         }
-    }  
+    },
+    {
+        "id": 18,
+        "teams": ["Golden Warriors","Bombay Heats"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 95 runs",
+        "scores": {
+            "Golden Warriors": { "runs": 204, "overs": 19.4 },
+            "Bombay Heats": { "runs": 109, "overs": 8.4 }
+        }
+    },
+    {
+        "id": 19,
+        "teams": ["Golden Warriors","Deccan Chargers"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 6 wickets",
+        "scores": {
+            "Golden Warriors": { "runs": 121, "overs": 12.2 },
+            "Deccan Chargers": { "runs": 125, "overs": 14.2 }
+        }
+    },
+    {
+        "id": 20,
+        "teams": ["Elite Eagles","Deccan Chargers"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 113 run",
+        "scores": {
+            "Elite Eagles": { "runs": 171, "overs": 18.4 },
+            "Deccan Chargers": { "runs": 58, "overs": 7 }
+        }
+    },
+    {
+        "id": 21,
+        "teams": ["Elite Eagles","Hologram"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 73 run",
+        "scores": {
+            "Elite Eagles": { "runs": 119, "overs": 18.3 },
+            "Hologram": { "runs": 46, "overs": 7 }
+        }
+    },
+    {
+        "id": 22,
+        "teams": ["Vhagor Riders","American Eagles"],
+        "winner": "Tie",
+        "result": "Match tied due to game crash",
+        "scores": {
+            "Golden Warriors": null,
+            "Deccan Chargers": null
+        }
+    }   
 ]
