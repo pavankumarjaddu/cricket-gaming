@@ -6,6 +6,7 @@ function initializePointsTable(teams) {
             matches: 0,
             won: 0,
             loss: 0,
+            tie: 0, // Add tie count
             nrr: 0,
             points: 0,
             totalRunsScored: 0,
@@ -29,6 +30,8 @@ function processMatch(pointsTable, match) {
         // Award 1 point to each team in case of a tie
         pointsTable[team1].points += 1;
         pointsTable[team2].points += 1;
+        pointsTable[team1].tie += 1;
+        pointsTable[team2].tie += 1;
         return; // Skip further processing for a tie match
     }
 
@@ -101,6 +104,7 @@ function displayPointsTable(pointsTable) {
             <td>${pointsTable[team].matches}</td>
             <td>${pointsTable[team].won}</td>
             <td>${pointsTable[team].loss}</td>
+            <td>${pointsTable[team].tie}</td>
             <td>${pointsTable[team].nrr.toFixed(3)}</td>
             <td>${pointsTable[team].points}</td>
         `;
