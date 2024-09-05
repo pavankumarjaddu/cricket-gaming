@@ -211,16 +211,6 @@
     },
     {
         "id": 22,
-        "teams": ["Vhagor Riders","American Eagles"],
-        "winner": "Tie",
-        "result": "Match tied due to game crash",
-        "scores": {
-            "Golden Warriors": null,
-            "Deccan Chargers": null
-        }
-    },
-    {
-        "id": 23,
         "teams": ["Bombay Heats","Hologram"],
         "winner": "Hologram",
         "result": "Hologram won by 7 wickets",
