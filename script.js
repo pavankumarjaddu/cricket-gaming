@@ -6,7 +6,7 @@ function initializePointsTable(teams) {
             matches: 0,
             won: 0,
             loss: 0,
-            tie: 0, // Add tie count
+            tie: 0,
             nrr: 0,
             points: 0,
             totalRunsScored: 0,
