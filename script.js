@@ -19,14 +19,19 @@ function initializePointsTable(teams) {
 }
 
 // Process a single match and update the points table
+// Process a single match and update the points table
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
+
+    console.log(`Processing match between ${team1} and ${team2}`);
+    console.log(`Winner: ${match.winner}`);
 
     // Update matches played
     pointsTable[team1].matches += 1;
     pointsTable[team2].matches += 1;
 
     if (match.winner === "Tie") {
+        console.log(`Match tied between ${team1} and ${team2}`);
         // Award 1 point to each team in case of a tie
         pointsTable[team1].points += 1;
         pointsTable[team2].points += 1;
@@ -62,6 +67,10 @@ function processMatch(pointsTable, match) {
     pointsTable[team2].totalOversFaced += team2Overs;
     pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
     pointsTable[team2].totalOversBowled += team1Overs;
+
+    // Log the updated points table entry for each team
+    console.log(`Updated points table for ${team1}: `, pointsTable[team1]);
+    console.log(`Updated points table for ${team2}: `, pointsTable[team2]);
 }
 
 // Calculate NRR based on accumulated runs and overs
