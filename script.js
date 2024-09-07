@@ -19,7 +19,6 @@ function initializePointsTable(teams) {
 }
 
 // Process a single match and update the points table
-// Process a single match and update the points table
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
 
@@ -31,13 +30,11 @@ function processMatch(pointsTable, match) {
     pointsTable[team2].matches += 1;
 
     if (match.winner === "Tie") {
+        // Handle tie case
         console.log(`Match tied between ${team1} and ${team2}`);
-        // Award 1 point to each team in case of a tie
         pointsTable[team1].points += 1;
         pointsTable[team2].points += 1;
-        pointsTable[team1].tie += 1;
-        pointsTable[team2].tie += 1;
-        return; // Skip further processing for a tie match
+        return;
     }
 
     const winner = match.winner;
@@ -53,20 +50,24 @@ function processMatch(pointsTable, match) {
     // Full quota of overs assumed (e.g., 20 overs in T20)
     const fullQuotaOvers = 20.0;
 
-    // Use full quota of overs if the team is bowled out
-    const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
-    const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
+    // Add defensive checks before accessing runs and overs
+    if (match.scores[team1] && match.scores[team2]) {
+        const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
+        const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
 
-    // Accumulate total runs and overs
-    pointsTable[team1].totalRunsScored += match.scores[team1].runs;
-    pointsTable[team1].totalOversFaced += team1Overs;
-    pointsTable[team1].totalRunsConceded += match.scores[team2].runs;
-    pointsTable[team1].totalOversBowled += team2Overs;
+        // Accumulate total runs and overs
+        pointsTable[team1].totalRunsScored += match.scores[team1].runs;
+        pointsTable[team1].totalOversFaced += team1Overs;
+        pointsTable[team1].totalRunsConceded += match.scores[team2].runs;
+        pointsTable[team1].totalOversBowled += team2Overs;
 
-    pointsTable[team2].totalRunsScored += match.scores[team2].runs;
-    pointsTable[team2].totalOversFaced += team2Overs;
-    pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
-    pointsTable[team2].totalOversBowled += team1Overs;
+        pointsTable[team2].totalRunsScored += match.scores[team2].runs;
+        pointsTable[team2].totalOversFaced += team2Overs;
+        pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
+        pointsTable[team2].totalOversBowled += team1Overs;
+    } else {
+        console.error(`Invalid scores data for match between ${team1} and ${team2}`);
+    }
 
     // Log the updated points table entry for each team
     console.log(`Updated points table for ${team1}: `, pointsTable[team1]);
