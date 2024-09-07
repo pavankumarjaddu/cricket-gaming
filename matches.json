@@ -256,7 +256,7 @@
         "result": "American Eagles won by 135 run",
         "scores": {
             "American Eagles": { "runs": 200, "overs": 20 },
-            "Hologram": { "runs": 65, "overs": 9 }
+            "Royal Challengers Bhimavaram": { "runs": 65, "overs": 9 }
         }
     },
     {
@@ -266,7 +266,7 @@
         "result": "American Eagles won by 6 wickets",
         "scores": {
             "The Hesitate Hitters": { "runs": 93, "overs": 13.4 },
-            "Hologram": { "runs": 94, "overs": 16 }
+            "American Eagles": { "runs": 94, "overs": 16 }
         }
     },
     {
