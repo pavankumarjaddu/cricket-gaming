@@ -241,16 +241,6 @@
     },
     {
         "id": 25,
-        "teams": ["Deccan Chargers","Golden Warriors"],
-        "winner": "Golden Warriors",
-        "result": "Golden Warriors won by 6 wickets",
-        "scores": {
-            "Deccan Chargers": { "runs": 121, "overs": 12.2 },
-            "Golden Warriors": { "runs": 125, "overs": 14.2 }
-        }
-    },
-    {
-        "id": 26,
         "teams": ["Royal Challengers Bhimavaram","American Eagles"],
         "winner": "American Eagles",
         "result": "American Eagles won by 135 run",
@@ -260,7 +250,7 @@
         }
     },
     {
-        "id": 27,
+        "id": 26,
         "teams": ["American Eagles","The Hesitate Hitters"],
         "winner": "American Eagles",
         "result": "American Eagles won by 6 wickets",
@@ -270,7 +260,7 @@
         }
     },
     {
-        "id": 28,
+        "id": 27,
         "teams": ["Bombay Heats","The Spartans"],
         "winner": "The Spartans",
         "result": "The Spartans won by 134 runs",
@@ -280,7 +270,7 @@
         }
     },
     {
-        "id": 29,
+        "id": 28,
         "teams": ["American Eagles","Hologram"],
         "winner": "Hologram",
         "result": "Hologram won by 2 wickets",
