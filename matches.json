@@ -252,7 +252,7 @@
     {
         "id": 26,
         "teams": ["American Eagles","The Hesitate Hitters"],
-        "winner": "American Eagles",
+        "winner": "The Hesitate Hitters",
         "result": "The Hesitate Hitters won by 6 wickets",
         "scores": {
             "American Eagles": { "runs": 93, "overs": 13.4 },
