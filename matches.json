@@ -328,5 +328,15 @@
             "Hyderabad HellDivers": { "runs": 53, "overs": 7.2 },
             "Elite Eagles": { "runs": 57, "overs": 2.5 }
         }
+    },
+    {
+        "id": 33,
+        "teams": ["Hologram","Deccan Chargers"],
+        "winner": "Hologram",
+        "result": "Hologram won by 82 runs",
+        "scores": {
+            "Hologram": { "runs": 237, "overs": 19.4 },
+            "Deccan Chargers": { "runs": 155, "overs": 14.2 }
+        }
     }   
 ]
