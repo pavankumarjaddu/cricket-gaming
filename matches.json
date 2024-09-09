@@ -338,5 +338,25 @@
             "Hologram": { "runs": 237, "overs": 19.4 },
             "Deccan Chargers": { "runs": 155, "overs": 14.2 }
         }
+    },
+    {
+        "id": 35,
+        "teams": ["Hologram","Royal Challengers Bhimavaram"],
+        "winner": "Hologram",
+        "result": "Hologram won by 9 wickets",
+        "scores": {
+            "Royal Challengers Bhimavaram": { "runs": 70, "overs": 17.1 },
+            "hologram": { "runs": 71, "overs": 4.2 }
+        }
+    },
+    {
+        "id": 35,
+        "teams": ["Bombay Heats","Hyderabad HellDivers"],
+        "winner": "Bombay Heats",
+        "result": "Bombay Heats won by 8 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 145, "overs": 14.4 },
+            "Bombay Heats": { "runs": 147, "overs": 8.4 }
+        }
     }   
 ]
