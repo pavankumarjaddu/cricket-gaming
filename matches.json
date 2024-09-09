@@ -253,10 +253,10 @@
         "id": 26,
         "teams": ["American Eagles","The Hesitate Hitters"],
         "winner": "American Eagles",
-        "result": "American Eagles won by 6 wickets",
+        "result": "The Hesitate Hitters won by 6 wickets",
         "scores": {
-            "The Hesitate Hitters": { "runs": 93, "overs": 13.4 },
-            "American Eagles": { "runs": 94, "overs": 16 }
+            "American Eagles": { "runs": 93, "overs": 13.4 },
+            "The Hesitate Hitters": { "runs": 94, "overs": 16 }
         }
     },
     {
@@ -277,6 +277,56 @@
         "scores": {
             "American Eagles": { "runs": 130, "overs": 19.2 },
             "Hologram": { "runs": 131, "overs": 14.5 }
+        }
+    },
+    {
+        "id": 29,
+        "teams": ["American Eagles","Golden Warriors"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 9 wickets",
+        "scores": {
+            "American Eagles": { "runs": 180, "overs": 18.2 },
+            "Golden Warriors": { "runs": 182, "overs": 9.5 }
+        }
+    },
+    {
+        "id": 30,
+        "teams": ["Golden Warriors","Hologram"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 4 wickets",
+        "scores": {
+            "hologram": { "runs": 169, "overs": 19.2 },
+            "Golden Warriors": { "runs": 173, "overs": 18 }
+        }
+    },
+    {
+        "id": 31,
+        "teams": ["Elite Eagles","Vijayawada Volunteers"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 137 runs",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 159, "overs": 16.4 },
+            "Elite Eagles": { "runs": 22, "overs": 4.2 }
+        }
+    },
+    {
+        "id": 32,
+        "teams": ["Bombay Heats","Vhagor Riders"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 5 wickets",
+        "scores": {
+            "Bombay Heats": { "runs": 98, "overs": 14.3 },
+            "Vhagor Riders": { "runs": 99, "overs": 12.4 }
+        }
+    },
+    {
+        "id": 33,
+        "teams": ["Elite Eagles","Hyderabad HellDivers"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 10 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 53, "overs": 7.2 },
+            "Elite Eagles": { "runs": 57, "overs": 2.5 }
         }
     }   
 ]
