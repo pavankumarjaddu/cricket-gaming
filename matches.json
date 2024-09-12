@@ -438,5 +438,25 @@
             "Royal Challengers Bhimavaram": { "runs": 112, "overs": 12.4 },
             "Bombay Heats": { "runs": 113, "overs": 9.2 }
         }
+    },
+    {
+        "id": 45,
+        "teams": ["Vijayawada Volunteers","Vhagor Riders"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 4 wickets",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 108, "overs": 17 },
+            "Vhagor Riders": { "runs": 110, "overs": 13.3 }
+        }
+    },
+    {
+        "id": 46,
+        "teams": ["Deccan Chargers","Vhagor Riders"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 25 runs",
+        "scores": {
+            "Vhagor Riders": { "runs": 106, "overs": 12.2 },
+            "Deccan Chargers": { "runs": 81, "overs": 10.5 }
+        }
     }  
 ]
