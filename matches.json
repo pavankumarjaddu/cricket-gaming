@@ -358,5 +358,85 @@
             "Hyderabad HellDivers": { "runs": 145, "overs": 14.4 },
             "Bombay Heats": { "runs": 147, "overs": 8.4 }
         }
-    }   
+    },
+    {
+        "id": 37,
+        "teams": ["Hyderabad HellDivers","American Eagles"],
+        "winner": "American Eagles",
+        "result": "American Eagles won by 8 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 75, "overs": 9.5 },
+            "American Eagles": { "runs": 78, "overs": 4.2 }
+        }
+    },
+    {
+        "id": 38,
+        "teams": ["Hologram","The Hesitate Hitters"],
+        "winner": "Hologram",
+        "result": "Hologram won by 160 runs",
+        "scores": {
+            "hologram": { "runs": 267, "overs": 20 },
+            "The Hesitate Hitters": { "runs": 107, "overs": 10.4 }
+        }
+    },
+    {
+        "id": 39,
+        "teams": ["Vhagor Riders","Royal Challengers Bhimavaram"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 60 runs",
+        "scores": {
+            "Vhagor Riders": { "runs": 185, "overs": 20 },
+            "Royal Challengers Bhimavaram": { "runs": 125, "overs": 15 }
+        }
+    },
+    {
+        "id": 40,
+        "teams": ["Hologram","Hyderabad HellDivers"],
+        "winner": "Hologram",
+        "result": "Hologram won by 9 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 114, "overs": 20 },
+            "hologram": { "runs": 118, "overs": 6.5 }
+        }
+    },
+    {
+        "id": 41,
+        "teams": ["The Hesitate Hitters","Hyderabad HellDivers"],
+        "winner": "The Hesitate Hitters",
+        "result": "The Hesitate Hitters won by 10 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 109, "overs": 19.3 },
+            "The Hesitate Hitters": { "runs": 113, "overs": 10.1 }
+        }
+    },
+    {
+        "id": 42,
+        "teams": ["Vhagor Riders","Hyderabad HellDivers"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 5 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 61, "overs": 11 },
+            "Vhagor Riders": { "runs": 65, "overs": 4.2 }
+        }
+    },
+    {
+        "id": 43,
+        "teams": ["Vijayawada Volunteers","American Eagles"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 2 wickets",
+        "scores": {
+            "American Eagles": { "runs": 203, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 207, "overs": 17 }
+        }
+    },
+    {
+        "id": 44,
+        "teams": ["Bombay Heats","Royal Challengers Bhimavaram"],
+        "winner": "Bombay Heats",
+        "result": "Bombay Heats won by 6 wickets",
+        "scores": {
+            "Royal Challengers Bhimavaram": { "runs": 112, "overs": 12.4 },
+            "Bombay Heats": { "runs": 113, "overs": 9.2 }
+        }
+    }  
 ]
