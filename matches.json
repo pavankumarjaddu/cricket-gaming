@@ -458,5 +458,25 @@
             "Vhagor Riders": { "runs": 106, "overs": 12.2 },
             "Deccan Chargers": { "runs": 81, "overs": 10.5 }
         }
-    }  
+    },
+    {
+        "id": 47,
+        "teams": ["Hyderabad HellDivers","Golden Warriors"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 6 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 97, "overs": 8.1 },
+            "Golden Warriors": { "runs": 103, "overs": 4.3 }
+        }
+    },
+    {
+        "id": 48,
+        "teams": ["Hyderabad HellDivers","Deccan Chargers"],
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 5 wickets",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 135, "overs": 18.3 },
+            "Deccan Chargers": { "runs": 140, "overs": 7.5 }
+        }
+    }   
 ]
