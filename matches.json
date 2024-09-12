@@ -295,7 +295,7 @@
         "winner": "Golden Warriors",
         "result": "Golden Warriors won by 4 wickets",
         "scores": {
-            "hologram": { "runs": 169, "overs": 19.2 },
+            "Hologram": { "runs": 169, "overs": 19.2 },
             "Golden Warriors": { "runs": 173, "overs": 18 }
         }
     },
@@ -346,7 +346,7 @@
         "result": "Hologram won by 9 wickets",
         "scores": {
             "Royal Challengers Bhimavaram": { "runs": 70, "overs": 17.1 },
-            "hologram": { "runs": 71, "overs": 4.2 }
+            "Hologram": { "runs": 71, "overs": 4.2 }
         }
     },
     {
@@ -375,7 +375,7 @@
         "winner": "Hologram",
         "result": "Hologram won by 160 runs",
         "scores": {
-            "hologram": { "runs": 267, "overs": 20 },
+            "Hologram": { "runs": 267, "overs": 20 },
             "The Hesitate Hitters": { "runs": 107, "overs": 10.4 }
         }
     },
@@ -396,7 +396,7 @@
         "result": "Hologram won by 9 wickets",
         "scores": {
             "Hyderabad HellDivers": { "runs": 114, "overs": 20 },
-            "hologram": { "runs": 118, "overs": 6.5 }
+            "Hologram": { "runs": 118, "overs": 6.5 }
         }
     },
     {
