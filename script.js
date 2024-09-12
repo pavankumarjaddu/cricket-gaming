@@ -65,13 +65,13 @@ function processMatch(pointsTable, match) {
         pointsTable[team2].totalOversFaced += team2Overs;
         pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
         pointsTable[team2].totalOversBowled += team1Overs;
+
+        // Log accumulated values
+        console.log(`Updated points table for ${team1}: `, pointsTable[team1]);
+        console.log(`Updated points table for ${team2}: `, pointsTable[team2]);
     } else {
         console.error(`Invalid scores data for match between ${team1} and ${team2}`);
     }
-
-    // Log the updated points table entry for each team
-    console.log(`Updated points table for ${team1}: `, pointsTable[team1]);
-    console.log(`Updated points table for ${team2}: `, pointsTable[team2]);
 }
 
 // Calculate NRR based on accumulated runs and overs
@@ -85,6 +85,7 @@ function calculateNRR(pointsTable) {
         } else {
             teamData.nrr = 0;
         }
+        console.log(`NRR calculated for ${team}: ${teamData.nrr.toFixed(3)}`);
     }
 }
 
