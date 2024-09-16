@@ -478,5 +478,15 @@
             "Hyderabad HellDivers": { "runs": 135, "overs": 18.3 },
             "Deccan Chargers": { "runs": 140, "overs": 7.5 }
         }
-    }   
+    },
+    {
+        "id": 49,
+        "teams": ["American Eagles","Bombay Heats"],
+        "winner": "American Eagles",
+        "result": "American Eagles won by 5 wickets",
+        "scores": {
+            "Bombay Heats": { "runs": 136, "overs": 16.2 },
+            "American Eagles": { "runs": 138, "overs": 12.4 }
+        }
+    }    
 ]
