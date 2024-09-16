@@ -488,5 +488,15 @@
             "Bombay Heats": { "runs": 136, "overs": 16.2 },
             "American Eagles": { "runs": 138, "overs": 12.4 }
         }
-    }    
+    },
+    {
+        "id": 50,
+        "teams": ["American Eagles","Deccan Chargers"],
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 3 wickets",
+        "scores": {
+            "American Eagles": { "runs": 209, "overs": 20 },
+            "Deccan Chargers": { "runs": 211, "overs": 19.4 }
+        }
+    }   
 ]
