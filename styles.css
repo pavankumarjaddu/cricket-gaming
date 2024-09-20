@@ -1,88 +1,78 @@
-/* Background image setup */
-body {
-    background-image: url('images/background.jpg'); /* Path to the background image */
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-/* Center the login box */
-.login-container {
-    max-width: 400px;
-    margin: 150px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border-radius: 10px;
-    color: #fff;
-}
-
-label, input {
-    display: block;
-    width: 100%;
-    margin: 10px 0;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745; /* Green button */
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #218838; /* Darker green on hover */
-}
-
-#error-msg {
-    color: red;
-    text-align: center;
-}
-
-/* Additional styles for the points table (if needed) */
+/* Style for the container */
 .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-table {
+/* Table styles */
+#points-table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 30px;
-    color: #fff;
-}
-
-th, td {
-    padding: 15px;
+    margin: 20px 0;
+    font-size: 1.2em;
+    min-width: 400px;
     text-align: center;
-    border: 1px solid #444;
 }
 
-th {
-    background-color: #333;
+#points-table th, #points-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
 }
 
+#points-table th {
+    background-color: #f4f4f4;
+}
+
+#points-table tbody tr:nth-of-type(even) {
+    background-color: #f9f9f9;
+}
+
+#points-table tbody tr:nth-of-type(odd) {
+    background-color: #f1f1f1;
+}
+
+#points-table tbody tr:first-child {
+    background-color: #d4edda; /* Highlight top team */
+}
+
+/* Caps styles */
 .caps {
     display: flex;
     justify-content: space-around;
-    color: #fff;
+    margin-top: 30px;
 }
 
 .cap {
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     padding: 20px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
     width: 30%;
     border-radius: 10px;
+}
+
+.cap h2 {
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #points-table {
+        font-size: 0.9em;
+    }
+
+    .caps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cap {
+        width: 90%;
+        margin-bottom: 20px;
+    }
 }

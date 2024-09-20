@@ -108,17 +108,17 @@ function displayPointsTable(pointsTable) {
     });
 
     // Create table rows in sorted order
-    sortedTeams.forEach(team => {
+    sortedTeams.forEach((team, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${team}</td>
             <td>${pointsTable[team].matches}</td>
             <td>${pointsTable[team].won}</td>
             <td>${pointsTable[team].loss}</td>
-            <td>${pointsTable[team].tie}</td>
             <td>${pointsTable[team].nrr.toFixed(3)}</td>
             <td>${pointsTable[team].points}</td>
         `;
+        if (index === 0) row.style.backgroundColor = "#d4edda"; // Highlight top team
         tableBody.appendChild(row);
     });
 }
