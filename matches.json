@@ -498,5 +498,65 @@
             "American Eagles": { "runs": 209, "overs": 20 },
             "Deccan Chargers": { "runs": 211, "overs": 19.4 }
         }
+    },
+    {
+        "id": 51,
+        "teams": ["Deccan Chargers","Royal Challengers Bhimavaram"],
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 6 wickets",
+        "scores": {
+            "Royal Challengers Bhimavaram": { "runs": 105, "overs": 9.1 },
+            "Deccan Chargers": { "runs": 106, "overs": 7.4 }
+        }
+    },
+    {
+        "id": 52,
+        "teams": ["Vijayawada Volunteers","Deccan Chargers"],
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 1 wickets",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 156, "overs": 19.1 },
+            "Deccan Chargers": { "runs": 161, "overs": 16.4 }
+        }
+    },
+    {
+        "id": 53,
+        "teams": ["The Spartans","Golden Warriors"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 108 runs",
+        "scores": {
+            "The Spartans": { "runs": 230, "overs": 20 },
+            "Golden Warriors": { "runs": 122, "overs": 11.4 }
+        }
+    },
+    {
+        "id": 54,
+        "teams": ["American Eagles","The Spartans"],
+        "winner": "American Eagles",
+        "result": "American Eagles won by 3 wickets",
+        "scores": {
+            "The Spartans": { "runs": 219, "overs": 20 },
+            "American Eagles": { "runs": 220, "overs": 19.4 }
+        }
+    },
+    {
+        "id": 55,
+        "teams": ["Royal Challengers Bhimavaram","Vijayawada Volunteers"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 111 runs",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 215, "overs": 19.2 },
+            "Royal Challengers Bhimavaram": { "runs": 104, "overs": 10.2 }
+        }
+    },
+    {
+        "id": 56,
+        "teams": ["Royal Challengers Bhimavaram","Hyderabad HellDivers"],
+        "winner": "Royal Challengers Bhimavaram",
+        "result": "Royal Challengers Bhimavaram won by 1 wicket",
+        "scores": {
+            "Hyderabad HellDivers": { "runs": 190, "overs": 20 },
+            "Royal Challengers Bhimavaram": { "runs": 194, "overs": 13.5 }
+        }
     }   
 ]
