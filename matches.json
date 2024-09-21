@@ -558,5 +558,35 @@
             "Hyderabad HellDivers": { "runs": 190, "overs": 20 },
             "Royal Challengers Bhimavaram": { "runs": 194, "overs": 13.5 }
         }
+    },
+    {
+        "id": 57,
+        "teams": ["Vijayawada Volunteers","The Spartans"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 132 runs",
+        "scores": {
+            "The Spartans": { "runs": 227, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 95, "overs": 14.2 }
+        }
+    },
+    {
+        "id": 58,
+        "teams": ["Hologram","Vijayawada Volunteers"],
+        "winner": "Hologram",
+        "result": "Hologram won by 6 wickets",
+        "scores": {
+            "Vijayawada Volunteers": { "runs": 117, "overs": 18 },
+            "Hologram": { "runs": 121, "overs": 11.5 }
+        }
+    },
+    {
+        "id": 59,
+        "teams": ["Vijayawada Volunteers","The Hesitate Hitters"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 1 wicket",
+        "scores": {
+            "The Hesitate Hitters": { "runs": 130, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 132, "overs": 15.2 }
+        }
     }   
 ]
