@@ -588,5 +588,15 @@
             "The Hesitate Hitters": { "runs": 130, "overs": 20 },
             "Vijayawada Volunteers": { "runs": 132, "overs": 15.2 }
         }
+    },
+    {
+        "id": 60,
+        "teams": ["Hologram","The Spartans"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 79 runs",
+        "scores": {
+            "The Spartans": { "runs": 182, "overs": 20 },
+            "Hologram": { "runs": 103, "overs": 11 }
+        }
     }   
 ]
