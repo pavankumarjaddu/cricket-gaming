@@ -8,5 +8,15 @@
             "The Spartans": { "runs": 70, "overs": 18.4 },
             "Elite Eagles": { "runs": 74, "overs": 14.2 }
         }
+    },
+    {
+        "id": 2,
+        "teams": ["Deccan Chargers", "American Eagles"],
+        "winner": "Deccan Chargers",
+        "result": "Deccan Chargers won by 2 wickets",
+        "scores": {
+            "American Eagles": { "runs": 182, "overs": 20.0 },
+            "Deccan Chargers": { "runs": 183, "overs": 17.2 }
+        }
     }
 ]
