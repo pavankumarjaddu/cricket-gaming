@@ -99,7 +99,7 @@ function changeRound() {
         document.getElementById('round2-table').style.display = 'none';
     } else {
         document.getElementById('round1-table').style.display = 'none';
-        document.getElementById('round2-table').style.display = 'block';
+        document.getElementById('round2-table').style.display = 'flex';
     }
 }
 

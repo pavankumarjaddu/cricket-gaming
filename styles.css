@@ -19,7 +19,7 @@ body {
 }
 
 /* Table styles */
-#points-table {
+#points-table, #groupA-table, #groupB-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
@@ -28,25 +28,44 @@ body {
     text-align: center;
 }
 
-#points-table th, #points-table td {
+#points-table th, #groupA-table th, #groupB-table th, 
+#points-table td, #groupA-table td, #groupB-table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
 
-#points-table th {
+#points-table th, #groupA-table th, #groupB-table th {
     background-color: #f4f4f4;
 }
 
-#points-table tbody tr:nth-of-type(even) {
+#points-table tbody tr:nth-of-type(even), 
+#groupA-table tbody tr:nth-of-type(even),
+#groupB-table tbody tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 
-#points-table tbody tr:nth-of-type(odd) {
+#points-table tbody tr:nth-of-type(odd), 
+#groupA-table tbody tr:nth-of-type(odd),
+#groupB-table tbody tr:nth-of-type(odd) {
     background-color: #f1f1f1;
 }
 
-#points-table tbody tr:first-child {
+#points-table tbody tr:first-child, 
+#groupA-table tbody tr:first-child,
+#groupB-table tbody tr:first-child {
     background-color: #d4edda; /* Highlight top team */
+}
+
+/* Style for the round2-table layout */
+#round2-table {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Group table layout for round 2 */
+.group {
+    width: 45%;
 }
 
 /* Caps styles */
@@ -75,7 +94,7 @@ body {
         padding: 10px;
     }
 
-    #points-table {
+    #points-table, #groupA-table, #groupB-table {
         font-size: 0.9em;
     }
 
@@ -86,6 +105,15 @@ body {
 
     .cap {
         width: 90%;
+        margin-bottom: 20px;
+    }
+
+    #round2-table {
+        flex-direction: column;
+    }
+
+    .group {
+        width: 100%;
         margin-bottom: 20px;
     }
 }
