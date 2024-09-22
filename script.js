@@ -122,8 +122,8 @@ function updateTournamentTable() {
     fetch('round2matches.json')
         .then(response => response.json())
         .then(matches => {
-            const groupATeams = ["Golden Warriors", "Vhagor Riders", "Hologram", "Elite Eagles"];
-            const groupBTeams = ["The Spartans", "American Eagles", "Deccan Chargers", "Vijayawada Volunteers"];
+            const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
+            const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
 
             const groupAPointsTable = initializePointsTable(groupATeams);
             const groupBPointsTable = initializePointsTable(groupBTeams);
@@ -151,8 +151,8 @@ function updateTournamentTable() {
         .catch(error => {
             console.error("Error fetching Round 2 matches: ", error);
             // Initialize the tables with zeros if the file is missing or empty
-            const groupATeams = ["Golden Warriors", "Vhagor Riders", "Hologram", "Elite Eagles"];
-            const groupBTeams = ["The Spartans", "American Eagles", "Deccan Chargers", "Vijayawada Volunteers"];
+            const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
+            const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
 
             const groupAPointsTable = initializePointsTable(groupATeams);
             const groupBPointsTable = initializePointsTable(groupBTeams);
