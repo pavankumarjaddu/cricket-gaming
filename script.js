@@ -37,6 +37,18 @@ function processMatch(pointsTable, match) {
         return;
     }
 
+    if (match.result === "walkover") {
+        // Handle walkover (No NRR calculation)
+        console.log(`Walkover match between ${team1} and ${team2}`);
+        const winner = match.winner;
+        const loser = winner === team1 ? team2 : team1;
+
+        pointsTable[winner].won += 1;
+        pointsTable[loser].loss += 1;
+        pointsTable[winner].points += 2;
+        return;  // No further calculations for walkovers
+    }
+
     const winner = match.winner;
     const loser = winner === team1 ? team2 : team1;
 

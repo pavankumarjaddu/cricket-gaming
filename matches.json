@@ -598,5 +598,49 @@
             "The Spartans": { "runs": 182, "overs": 20 },
             "Hologram": { "runs": 103, "overs": 11 }
         }
+    },
+    {
+        "id": 61,
+        "teams": ["Hyderabad HellDivers","The Spartans"],
+        "winner": "The Spartans",
+        "result": "walkover",
+        "scores": {}
+    },
+    {
+        "id": 62,
+        "teams": ["Hyderabad HellDivers","Vijayawada Volunteers"],
+        "winner": "Vijayawada Volunteers",
+        "result": "walkover",
+        "scores": {}
+    },
+    {
+        "id": 63,
+        "teams": ["Vijayawada Volunteers","Bombay Heats"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 5 wicket",
+        "scores": {
+            "Bombay Heats": { "runs": 148, "overs": 14.2 },
+            "Vijayawada Volunteers": { "runs": 152, "overs": 12.4 }
+        }
+    },
+    {
+        "id": 64,
+        "teams": ["Vhagor Riders","Hologram"],
+        "winner": "Tie",
+        "result": "Match tied due to game crash",
+        "scores": {
+            "The Spartans": null,
+            "Hologram": null
+        }
+    },
+    {
+        "id": 65,
+        "teams": ["The Spartans","Royal Challengers Bhimavaram"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 139 runs",
+        "scores": {
+            "The Spartans": { "runs": 222, "overs": 20 },
+            "Royal Challengers Bhimavaram": { "runs": 83, "overs": 11.4 }
+        }
     }   
 ]
