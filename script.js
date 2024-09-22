@@ -125,6 +125,11 @@ function updateTournamentTable() {
             const groupAPointsTable = initializePointsTable(groupATeams);
             const groupBPointsTable = initializePointsTable(groupBTeams);
 
+            // Even if no matches, display the team names with 0s initially
+            displayPointsTable(groupAPointsTable, 'groupA-table');
+            displayPointsTable(groupBPointsTable, 'groupB-table');
+
+            // Process matches for round 2
             matches.forEach(match => {
                 if (groupATeams.includes(match.teams[0])) {
                     processMatch(groupAPointsTable, match);
@@ -136,6 +141,7 @@ function updateTournamentTable() {
             calculateNRR(groupAPointsTable);
             calculateNRR(groupBPointsTable);
 
+            // Update table after processing matches
             displayPointsTable(groupAPointsTable, 'groupA-table');
             displayPointsTable(groupBPointsTable, 'groupB-table');
         });
