@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "teams": ["Elite Eagles", "The Spartans"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 3 wickets",
+        "scores": {
+            "The Spartans": { "runs": 70, "overs": 18.4 },
+            "Elite Eagles": { "runs": 74, "overs": 14.2 }
+        }
+    }
+]
