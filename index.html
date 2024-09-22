@@ -4,27 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cricket Tournament Points Table</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to styles.css -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Cricket Tournament Points Table</h1>
 
-        <table id="points-table">
-            <thead>
-                <tr>
-                    <th>Team</th>
-                    <th>Matches</th>
-                    <th>Won</th>
-                    <th>Loss</th>
-                    <th>Net Run Rate</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Points data will be inserted here by JavaScript -->
-            </tbody>
-        </table>
+        <!-- Dropdown to select between Round 1 and Round 2 -->
+        <select id="round-selector" onchange="changeRound()">
+            <option value="round1">Round 1</option>
+            <option value="round2">Round 2</option>
+        </select>
+
+        <!-- Points Table for Round 1 and Round 2 -->
+        <div id="round1-table" class="round-table">
+            <h2>Round 1 Points Table</h2>
+            <table id="points-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Matches</th>
+                        <th>Won</th>
+                        <th>Loss</th>
+                        <th>Net Run Rate</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Points data for Round 1 will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="round2-table" class="round-table" style="display: none;">
+            <h2>Round 2 Points Table</h2>
+
+            <!-- Group A Table -->
+            <h3>Group A</h3>
+            <table id="groupA-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Matches</th>
+                        <th>Won</th>
+                        <th>Loss</th>
+                        <th>Net Run Rate</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Points data for Group A will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+
+            <!-- Group B Table -->
+            <h3>Group B</h3>
+            <table id="groupB-table">
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Matches</th>
+                        <th>Won</th>
+                        <th>Loss</th>
+                        <th>Net Run Rate</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Points data for Group B will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
 
         <div class="caps">
             <div class="cap">
@@ -41,6 +91,7 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script> <!-- Ensure this is correctly linked -->
+
+    <script src="script.js"></script> <!-- Script to handle the data and dropdown -->
 </body>
 </html>
