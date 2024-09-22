@@ -3,7 +3,7 @@
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for readability */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
@@ -14,58 +14,43 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('https://via.placeholder.com/1920x1080') no-repeat center center fixed;
+    background: url('images/background.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
 /* Table styles */
-#points-table, #groupA-table, #groupB-table {
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 1.2em;
-    min-width: 400px;
     text-align: center;
 }
 
-#points-table th, #groupA-table th, #groupB-table th, 
-#points-table td, #groupA-table td, #groupB-table td {
+table th, table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
 }
 
-#points-table th, #groupA-table th, #groupB-table th {
+table th {
     background-color: #f4f4f4;
 }
 
-#points-table tbody tr:nth-of-type(even), 
-#groupA-table tbody tr:nth-of-type(even),
-#groupB-table tbody tr:nth-of-type(even) {
+table tbody tr:nth-of-type(even) {
     background-color: #f9f9f9;
 }
 
-#points-table tbody tr:nth-of-type(odd), 
-#groupA-table tbody tr:nth-of-type(odd),
-#groupB-table tbody tr:nth-of-type(odd) {
+table tbody tr:nth-of-type(odd) {
     background-color: #f1f1f1;
 }
 
-#points-table tbody tr:first-child, 
-#groupA-table tbody tr:first-child,
-#groupB-table tbody tr:first-child {
-    background-color: #d4edda; /* Highlight top team */
+table tbody tr:first-child {
+    background-color: #d4edda;
 }
 
-/* Style for the round2-table layout */
-#round2-table {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-/* Group table layout for round 2 */
+/* Styles for Group A and Group B */
 .group {
-    width: 45%;
+    margin: 20px 0;
 }
 
 /* Caps styles */
@@ -94,7 +79,7 @@ body {
         padding: 10px;
     }
 
-    #points-table, #groupA-table, #groupB-table {
+    table {
         font-size: 0.9em;
     }
 
@@ -105,15 +90,6 @@ body {
 
     .cap {
         width: 90%;
-        margin-bottom: 20px;
-    }
-
-    #round2-table {
-        flex-direction: column;
-    }
-
-    .group {
-        width: 100%;
         margin-bottom: 20px;
     }
 }
