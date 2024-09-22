@@ -642,5 +642,15 @@
             "The Spartans": { "runs": 222, "overs": 20 },
             "Royal Challengers Bhimavaram": { "runs": 83, "overs": 11.4 }
         }
+    },
+    {
+        "id": 66,
+        "teams": ["The Spartans","Vhagor Riders"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 9 wickets",
+        "scores": {
+            "The Spartans": { "runs": 36, "overs": 4.5 },
+            "Vhagor Riders": { "runs": 37, "overs": 4 }
+        }
     }   
 ]
