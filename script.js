@@ -99,12 +99,13 @@ function changeRound() {
         document.getElementById('round2-table').style.display = 'none';
     } else {
         document.getElementById('round1-table').style.display = 'none';
-        document.getElementById('round2-table').style.display = 'flex';
+        document.getElementById('round2-table').style.display = 'block';
     }
 }
 
 // Main function to fetch data and update the points table
 function updateTournamentTable() {
+    // Fetch Round 1 matches
     fetch('matches.json')
         .then(response => response.json())
         .then(matches => {
@@ -114,6 +115,7 @@ function updateTournamentTable() {
             displayPointsTable(pointsTable, 'round1-table');
         });
 
+    // Fetch Round 2 matches
     fetch('round2matches.json')
         .then(response => response.json())
         .then(matches => {
