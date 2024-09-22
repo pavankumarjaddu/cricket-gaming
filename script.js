@@ -113,6 +113,9 @@ function updateTournamentTable() {
             matches.forEach(match => processMatch(pointsTable, match));
             calculateNRR(pointsTable);
             displayPointsTable(pointsTable, 'round1-table');
+        })
+        .catch(error => {
+            console.error("Error fetching Round 1 matches: ", error);
         });
 
     // Fetch Round 2 matches
@@ -142,6 +145,18 @@ function updateTournamentTable() {
             calculateNRR(groupBPointsTable);
 
             // Update table after processing matches
+            displayPointsTable(groupAPointsTable, 'groupA-table');
+            displayPointsTable(groupBPointsTable, 'groupB-table');
+        })
+        .catch(error => {
+            console.error("Error fetching Round 2 matches: ", error);
+            // Initialize the tables with zeros if the file is missing or empty
+            const groupATeams = ["Golden Warriors", "Vhagor Riders", "Hologram", "Elite Eagles"];
+            const groupBTeams = ["The Spartans", "American Eagles", "Deccan Chargers", "Vijayawada Volunteers"];
+
+            const groupAPointsTable = initializePointsTable(groupATeams);
+            const groupBPointsTable = initializePointsTable(groupBTeams);
+
             displayPointsTable(groupAPointsTable, 'groupA-table');
             displayPointsTable(groupBPointsTable, 'groupB-table');
         });
