@@ -22,10 +22,6 @@ function initializePointsTable(teams) {
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
 
-    console.log(`Processing match between ${team1} and ${team2}`);
-    console.log(`Winner: ${match.winner}`);
-
-    // Update matches played
     pointsTable[team1].matches += 1;
     pointsTable[team2].matches += 1;
 
@@ -38,12 +34,10 @@ function processMatch(pointsTable, match) {
     const winner = match.winner;
     const loser = winner === team1 ? team2 : team1;
 
-    // Update wins and losses
     pointsTable[winner].won += 1;
     pointsTable[loser].loss += 1;
     pointsTable[winner].points += 2;
 
-    // Handle runs, overs, and NRR calculation
     if (match.scores[team1] && match.scores[team2]) {
         const fullQuotaOvers = 20.0;
 
@@ -117,10 +111,9 @@ function updateTournamentTable() {
             const pointsTable = initializePointsTable(allTeams);
             matches.forEach(match => processMatch(pointsTable, match));
             calculateNRR(pointsTable);
-            displayPointsTable(pointsTable, 'points-table');
+            displayPointsTable(pointsTable, 'round1-table');
         });
 
-    // Fetch round 2 matches
     fetch('round2matches.json')
         .then(response => response.json())
         .then(matches => {
