@@ -18,5 +18,15 @@
             "American Eagles": { "runs": 182, "overs": 20.0 },
             "Deccan Chargers": { "runs": 183, "overs": 17.2 }
         }
+    },
+    {
+        "id": 3,
+        "teams": ["Hologram", "American Eagles"],
+        "winner": "Hologram",
+        "result": "Hologram won by 6 wickets",
+        "scores": {
+            "American Eagles": { "runs": 79, "overs": 13.5 },
+            "Hologram": { "runs": 80, "overs": 8.0 }
+        }
     }
 ]
