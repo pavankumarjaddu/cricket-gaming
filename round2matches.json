@@ -28,5 +28,15 @@
             "American Eagles": { "runs": 79, "overs": 13.5 },
             "Hologram": { "runs": 80, "overs": 8.0 }
         }
+    },
+    {
+        "id": 4,
+        "teams": ["Golden Warriors", "Elite Eagles"],
+        "winner": "Elite Eagles",
+        "result": "Elite Eagles won by 62 runs",
+        "scores": {
+            "Elite Eagles": { "runs": 176, "overs": 20 },
+            "Hologram": { "runs": 114, "overs": 15.1 }
+        }
     }
 ]
