@@ -38,5 +38,25 @@
             "Elite Eagles": { "runs": 176, "overs": 20 },
             "Golden Warriors": { "runs": 114, "overs": 15.1 }
         }
+    },
+    {
+        "id": 5,
+        "teams": ["The Spartans", "Vijayawada Volunteers"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 11 runs",
+        "scores": {
+            "The Spartans": { "runs": 223, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 212, "overs": 18.3 }
+        }
+    },
+    {
+        "id": 6,
+        "teams": ["Deccan Chargers", "Hologram"],
+        "winner": "Hologram",
+        "result": "Hologram won by 5 wickets",
+        "scores": {
+            "Deccan Chargers": { "runs": 204, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 205, "overs": 14.5 }
+        }
     }
 ]
