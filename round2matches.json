@@ -83,10 +83,10 @@
         "id": 9,
         "teams": ["Vijayawada Volunteers", "Golden Warriors"],
         "winner": "Golden Warriors",
-        "result": "Golden Warriors won by 4 wickets",
+        "result": "Golden Warriors won by 5 wickets",
         "scores": {
             "Vijayawada Volunteers": { "runs": 160, "overs": 20 },
-            "Golden Warriors": { "runs": 161, "overs": 14.5 }
+            "Golden Warriors": { "runs": 161, "overs": 13 }
         }
     }
 ]
