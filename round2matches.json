@@ -78,5 +78,15 @@
             "Golden Warriors": { "runs": 189, "overs": 18.2 },
             "The Spartans": { "runs": 194, "overs": 18.5 }
         }
+    },
+    {
+        "id": 9,
+        "teams": ["Vijayawada Volunteers", "Golden Warriors"],
+        "winner": "Golden Warriors",
+        "result": "Golden Warriors won by 50 runs",
+        "scores": {
+            "Golden Warriors": { "runs": 210, "overs": 20 },
+            "Vijayawada Volunteers": { "runs": 140, "overs": 18.5 }
+        }
     }
 ]
