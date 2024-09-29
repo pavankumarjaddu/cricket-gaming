@@ -58,5 +58,25 @@
             "Deccan Chargers": { "runs": 204, "overs": 20 },
             "Vijayawada Volunteers": { "runs": 205, "overs": 14.5 }
         }
+    },
+    {
+        "id": 7,
+        "teams": ["Elite Eagles", "Vijayawada Volunteers"],
+        "winner": "Vijayawada Volunteers",
+        "result": "Vijayawada Volunteers won by 2 wickets",
+        "scores": {
+            "Elite Eagles": { "runs": 129, "overs": 17.5 },
+            "Vijayawada Volunteers": { "runs": 131, "overs": 14.4 }
+        }
+    },
+    {
+        "id": 8,
+        "teams": ["The Spartans", "Golden Warriors"],
+        "winner": "The Spartans",
+        "result": "The Spartans won by 3 wickets",
+        "scores": {
+            "Golden Warriors": { "runs": 189, "overs": 18.2 },
+            "The Spartans": { "runs": 194, "overs": 18.5 }
+        }
     }
 ]
