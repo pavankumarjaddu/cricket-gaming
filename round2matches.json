@@ -88,5 +88,15 @@
             "Vijayawada Volunteers": { "runs": 176, "overs": 13.5 },
             "Golden Warriors": { "runs": 125, "overs": 10.2 }
         }
+    },
+    {
+        "id": 10,
+        "teams": ["Vhagor Riders", "Hologram"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 61 runs",
+        "scores": {
+            "Vhagor Riders": { "runs": 102, "overs": 19.4 },
+            "Golden Warriors": { "runs": 41, "overs": 9 }
+        }
     }
 ]
