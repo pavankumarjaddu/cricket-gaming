@@ -1,3 +1,4 @@
+
 // Initialize the points table with all teams
 function initializePointsTable(teams) {
     const pointsTable = {};
@@ -47,8 +48,8 @@ function processMatch(pointsTable, match) {
     const fullQuotaOvers = 20.0;
 
     // Ensure overs handling if the team was bowled out before the full quota of overs
-    const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
-    const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
+    const team1Overs = match.scores[team1].overs < fullQuotaOvers && match.scores[team1].runs < match.scores[team2].runs ? match.scores[team1].overs : fullQuotaOvers;
+    const team2Overs = match.scores[team2].overs < fullQuotaOvers && match.scores[team2].runs < match.scores[team1].runs ? match.scores[team2].overs : fullQuotaOvers;
 
     // Accumulate runs and overs for both teams
     pointsTable[team1].totalRunsScored += match.scores[team1].runs;
