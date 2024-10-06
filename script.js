@@ -22,9 +22,15 @@ function initializePointsTable(teams) {
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
 
+    console.log(`Processing match: ${team1} vs ${team2}`);
+    console.log(`Match result: ${match.result}`);
+    console.log(`Scores: ${team1} - ${match.scores[team1].runs} runs in ${match.scores[team1].overs} overs`);
+    console.log(`Scores: ${team2} - ${match.scores[team2].runs} runs in ${match.scores[team2].overs} overs`);
+
     pointsTable[team1].matches += 1;
     pointsTable[team2].matches += 1;
 
+    // Handle Tie
     if (match.winner === "Tie") {
         pointsTable[team1].points += 1;
         pointsTable[team2].points += 1;
@@ -56,7 +62,6 @@ function processMatch(pointsTable, match) {
     }
 }
 
-// Calculate NRR
 function calculateNRR(pointsTable) {
     for (let team in pointsTable) {
         const teamData = pointsTable[team];
@@ -64,6 +69,12 @@ function calculateNRR(pointsTable) {
             const runsScoredPerOver = teamData.totalRunsScored / teamData.totalOversFaced;
             const runsConcededPerOver = teamData.totalRunsConceded / teamData.totalOversBowled;
             teamData.nrr = runsScoredPerOver - runsConcededPerOver;
+
+            // Log NRR calculation for each team
+            console.log(`${team} NRR calculation:`);
+            console.log(`Runs Scored: ${teamData.totalRunsScored}, Overs Faced: ${teamData.totalOversFaced}`);
+            console.log(`Runs Conceded: ${teamData.totalRunsConceded}, Overs Bowled: ${teamData.totalOversBowled}`);
+            console.log(`NRR: ${teamData.nrr}`);
         }
     }
 }
@@ -120,46 +131,34 @@ function updateTournamentTable() {
 
     // Fetch Round 2 matches
     fetch('round2matches.json')
-        .then(response => response.json())
-        .then(matches => {
-            const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
-            const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
+    .then(response => response.json())
+    .then(matches => {
+        const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
+        const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
 
-            const groupAPointsTable = initializePointsTable(groupATeams);
-            const groupBPointsTable = initializePointsTable(groupBTeams);
+        const groupAPointsTable = initializePointsTable(groupATeams);
+        const groupBPointsTable = initializePointsTable(groupBTeams);
 
-            // Even if no matches, display the team names with 0s initially
-            displayPointsTable(groupAPointsTable, 'groupA-table');
-            displayPointsTable(groupBPointsTable, 'groupB-table');
+        // Display team names with 0s before processing matches
+        displayPointsTable(groupAPointsTable, 'groupA-table');
+        displayPointsTable(groupBPointsTable, 'groupB-table');
 
-            // Process matches for round 2
-            matches.forEach(match => {
-                if (groupATeams.includes(match.teams[0])) {
-                    processMatch(groupAPointsTable, match);
-                } else {
-                    processMatch(groupBPointsTable, match);
-                }
-            });
-
-            calculateNRR(groupAPointsTable);
-            calculateNRR(groupBPointsTable);
-
-            // Update table after processing matches
-            displayPointsTable(groupAPointsTable, 'groupA-table');
-            displayPointsTable(groupBPointsTable, 'groupB-table');
-        })
-        .catch(error => {
-            console.error("Error fetching Round 2 matches: ", error);
-            // Initialize the tables with zeros if the file is missing or empty
-            const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
-            const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
-
-            const groupAPointsTable = initializePointsTable(groupATeams);
-            const groupBPointsTable = initializePointsTable(groupBTeams);
-
-            displayPointsTable(groupAPointsTable, 'groupA-table');
-            displayPointsTable(groupBPointsTable, 'groupB-table');
+        // Now process the matches
+        matches.forEach(match => {
+            if (groupATeams.includes(match.teams[0])) {
+                processMatch(groupAPointsTable, match);
+            } else {
+                processMatch(groupBPointsTable, match);
+            }
         });
+
+        calculateNRR(groupAPointsTable);
+        calculateNRR(groupBPointsTable);
+
+        // Display updated tables after processing
+        displayPointsTable(groupAPointsTable, 'groupA-table');
+        displayPointsTable(groupBPointsTable, 'groupB-table');
+    });
 }
 
 // Define the teams for Round 1 and Round 2
