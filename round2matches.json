@@ -96,7 +96,7 @@
         "result": "Vhagor Riders won by 61 runs",
         "scores": {
             "Vhagor Riders": { "runs": 102, "overs": 19.4 },
-            "Hologram": { "runs": 41, "overs": 9 }
+            "Hologram": { "runs": 41, "overs": 9.0 }
         }
     }
 ]
