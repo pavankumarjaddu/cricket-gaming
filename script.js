@@ -121,7 +121,6 @@ function updateTournamentTable() {
             const pointsTable = initializePointsTable(allTeams);
             matches.forEach(match => processMatch(pointsTable, match));
             calculateNRR(pointsTable);
-            displayPointsTable(pointsTable, 'round1-table');
         });
 
     // Fetch Round 2 matches
