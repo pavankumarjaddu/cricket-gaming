@@ -98,5 +98,15 @@
             "Vhagor Riders": { "runs": 102, "overs": 19.4 },
             "Hologram": { "runs": 41, "overs": 9.0 }
         }
+    },
+    {
+        "id": 11,
+        "teams": ["Vhagor Riders", "Deccan Chargers"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 9 wickets",
+        "scores": {
+            "Deccan Chargers": { "runs": 40, "overs": 6.3 },
+            "Vhagor Riders": { "runs": 41, "overs": 2 }
+        }
     }
 ]
