@@ -22,15 +22,15 @@ function initializePointsTable(teams) {
 function processMatch(pointsTable, match) {
     const [team1, team2] = match.teams;
 
-    console.log(`Processing match: ${team1} vs ${team2}`);
-    console.log(`Match result: ${match.result}`);
-    console.log(`Scores: ${team1} - ${match.scores[team1].runs} runs in ${match.scores[team1].overs} overs`);
-    console.log(`Scores: ${team2} - ${match.scores[team2].runs} runs in ${match.scores[team2].overs} overs`);
+    // Check for missing score data
+    if (!match.scores || !match.scores[team1] || !match.scores[team2]) {
+        console.error(`Missing scores for match between ${team1} and ${team2}`);
+        return;
+    }
 
     pointsTable[team1].matches += 1;
     pointsTable[team2].matches += 1;
 
-    // Handle Tie
     if (match.winner === "Tie") {
         pointsTable[team1].points += 1;
         pointsTable[team2].points += 1;
@@ -44,24 +44,25 @@ function processMatch(pointsTable, match) {
     pointsTable[loser].loss += 1;
     pointsTable[winner].points += 2;
 
-    if (match.scores[team1] && match.scores[team2]) {
-        const fullQuotaOvers = 20.0;
+    const fullQuotaOvers = 20.0;
 
-        const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
-        const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
+    // Ensure overs handling if the team was bowled out before the full quota of overs
+    const team1Overs = (match.scores[team1].runs < match.scores[team2].runs && match.scores[team1].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team1].overs;
+    const team2Overs = (match.scores[team2].runs < match.scores[team1].runs && match.scores[team2].overs < fullQuotaOvers) ? fullQuotaOvers : match.scores[team2].overs;
 
-        pointsTable[team1].totalRunsScored += match.scores[team1].runs;
-        pointsTable[team1].totalOversFaced += team1Overs;
-        pointsTable[team1].totalRunsConceded += match.scores[team2].runs;
-        pointsTable[team1].totalOversBowled += team2Overs;
+    // Accumulate runs and overs for both teams
+    pointsTable[team1].totalRunsScored += match.scores[team1].runs;
+    pointsTable[team1].totalOversFaced += team1Overs;
+    pointsTable[team1].totalRunsConceded += match.scores[team2].runs;
+    pointsTable[team1].totalOversBowled += team2Overs;
 
-        pointsTable[team2].totalRunsScored += match.scores[team2].runs;
-        pointsTable[team2].totalOversFaced += team2Overs;
-        pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
-        pointsTable[team2].totalOversBowled += team1Overs;
-    }
+    pointsTable[team2].totalRunsScored += match.scores[team2].runs;
+    pointsTable[team2].totalOversFaced += team2Overs;
+    pointsTable[team2].totalRunsConceded += match.scores[team1].runs;
+    pointsTable[team2].totalOversBowled += team1Overs;
 }
 
+// Calculate NRR
 function calculateNRR(pointsTable) {
     for (let team in pointsTable) {
         const teamData = pointsTable[team];
@@ -69,12 +70,8 @@ function calculateNRR(pointsTable) {
             const runsScoredPerOver = teamData.totalRunsScored / teamData.totalOversFaced;
             const runsConcededPerOver = teamData.totalRunsConceded / teamData.totalOversBowled;
             teamData.nrr = runsScoredPerOver - runsConcededPerOver;
-
-            // Log NRR calculation for each team
-            console.log(`${team} NRR calculation:`);
-            console.log(`Runs Scored: ${teamData.totalRunsScored}, Overs Faced: ${teamData.totalOversFaced}`);
-            console.log(`Runs Conceded: ${teamData.totalRunsConceded}, Overs Bowled: ${teamData.totalOversBowled}`);
-            console.log(`NRR: ${teamData.nrr}`);
+        } else {
+            teamData.nrr = 0;  // Default to 0 NRR if no valid overs data is available
         }
     }
 }
@@ -84,6 +81,7 @@ function displayPointsTable(pointsTable, tableId) {
     const tableBody = document.querySelector(`#${tableId} tbody`);
     tableBody.innerHTML = '';
 
+    // Sort teams first by points, then by NRR if points are equal
     const sortedTeams = Object.keys(pointsTable).sort((teamA, teamB) => pointsTable[teamB].points - pointsTable[teamA].points || pointsTable[teamB].nrr - pointsTable[teamA].nrr);
 
     sortedTeams.forEach(team => {
@@ -124,41 +122,38 @@ function updateTournamentTable() {
             matches.forEach(match => processMatch(pointsTable, match));
             calculateNRR(pointsTable);
             displayPointsTable(pointsTable, 'round1-table');
-        })
-        .catch(error => {
-            console.error("Error fetching Round 1 matches: ", error);
         });
 
     // Fetch Round 2 matches
     fetch('round2matches.json')
-    .then(response => response.json())
-    .then(matches => {
-        const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
-        const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
+        .then(response => response.json())
+        .then(matches => {
+            const groupATeams = ["The Spartans", "Golden Warriors", "Elite Eagles", "Vijayawada Volunteers"];
+            const groupBTeams = ["Vhagor Riders", "Hologram", "Deccan Chargers", "American Eagles"];
 
-        const groupAPointsTable = initializePointsTable(groupATeams);
-        const groupBPointsTable = initializePointsTable(groupBTeams);
+            const groupAPointsTable = initializePointsTable(groupATeams);
+            const groupBPointsTable = initializePointsTable(groupBTeams);
 
-        // Display team names with 0s before processing matches
-        displayPointsTable(groupAPointsTable, 'groupA-table');
-        displayPointsTable(groupBPointsTable, 'groupB-table');
+            // Even if no matches, display the team names with 0s initially
+            displayPointsTable(groupAPointsTable, 'groupA-table');
+            displayPointsTable(groupBPointsTable, 'groupB-table');
 
-        // Now process the matches
-        matches.forEach(match => {
-            if (groupATeams.includes(match.teams[0])) {
-                processMatch(groupAPointsTable, match);
-            } else {
-                processMatch(groupBPointsTable, match);
-            }
+            // Process matches for round 2
+            matches.forEach(match => {
+                if (groupATeams.includes(match.teams[0])) {
+                    processMatch(groupAPointsTable, match);
+                } else {
+                    processMatch(groupBPointsTable, match);
+                }
+            });
+
+            calculateNRR(groupAPointsTable);
+            calculateNRR(groupBPointsTable);
+
+            // Update table after processing matches
+            displayPointsTable(groupAPointsTable, 'groupA-table');
+            displayPointsTable(groupBPointsTable, 'groupB-table');
         });
-
-        calculateNRR(groupAPointsTable);
-        calculateNRR(groupBPointsTable);
-
-        // Display updated tables after processing
-        displayPointsTable(groupAPointsTable, 'groupA-table');
-        displayPointsTable(groupBPointsTable, 'groupB-table');
-    });
 }
 
 // Define the teams for Round 1 and Round 2
