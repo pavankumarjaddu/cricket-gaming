@@ -108,5 +108,15 @@
             "Deccan Chargers": { "runs": 40, "overs": 6.3 },
             "Vhagor Riders": { "runs": 41, "overs": 2 }
         }
+    },
+    {
+        "id": 12,
+        "teams": ["Vhagor Riders", "American Eagles"],
+        "winner": "Vhagor Riders",
+        "result": "Vhagor Riders won by 7 wickets",
+        "scores": {
+            "American Eagles": { "runs": 76, "overs": 16.5 },
+            "Vhagor Riders": { "runs": 81, "overs": 8.2 }
+        }
     }
 ]
